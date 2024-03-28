@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  h1, h2 {
+    text-align: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  label, input, select, button {
+    margin: 5px;
+  }
+  
+  .question {
+    margin: 20px 0;
+  }
+  
+  .option {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .feedback {
+    margin: 20px 0;
+  }
+  
+  #feedback_container {
+    margin-top: 10px;
+  }
+  
+  #restart_quiz_btn {
+    margin-top: 20px;
+  }
+  
