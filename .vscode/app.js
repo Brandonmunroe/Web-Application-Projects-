@@ -1,9 +1,5 @@
-// Define API endpoint for quiz questions
-const 
-
-
-
-API_URL = 'https://www.ixl.com/math/grade-4/identify-place-value-names';
+ // Define API endpoint for quiz questions
+const API_URL = 'C:\Users\brand\Documents\GitHub\Web-Development-Projects-2.0\.vscode\quiz_math.json';
 
 // Handle form submission
 $('#start_form').submit(async function(e) {
@@ -17,7 +13,7 @@ $('#start_form').submit(async function(e) {
 // Fetch quiz data from API
 async function fetchQuizData(quizName) {
   try {
-    const response = await fetch(API_URL + quizName);     
+    const response = await fetch(`${API_URL}/${quizName}`);
     
     if (!response.ok) {
       throw new Error('Error fetching quiz data');

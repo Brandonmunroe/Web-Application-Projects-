@@ -1,0 +1,23 @@
+{
+    "questions": [
+      {
+        "type": "multiple_choice",
+        "question": "What is the result of 5 + 7?",
+        "options": ["10", "11", "12", "13"],
+        "correct_answer": "12"
+      },
+      {
+        "type": "text_response",
+        "question": "What is the product of 6 and 9?",
+        "correct_answer": "54"
+      },
+      {
+        "type": "image_selection",
+        "question": "Which shape has 4 sides?",
+        "image_url": "https://example.com/rectangle.png",
+        "options": ["Triangle", "Rectangle", "Circle", "Square"],
+        "correct_answer": "Rectangle"
+      }
+    ]
+  }
+  
