@@ -1,0 +1,41 @@
+{
+    "quizzes": [
+      {
+        "id": 1,
+        "name": "Secure Coding Practices",
+        "questions": [
+          {
+            "questionId": 1,
+            "type": "multiple-choice",
+            "question": "What is the most effective way to prevent SQL injection attacks?",
+            "options": [
+              "Using regular expressions to sanitize input",
+              "Employing client-side validation",
+              "Using prepared statements with parameterized queries",
+              "Limiting the length of input"
+            ],
+            "answer": "Using prepared statements with parameterized queries"
+          },
+          {
+            "questionId": 2,
+            "type": "narrative",
+            "question": "What term describes the practice of continuously validating and updating?",
+            "answer": "Hardening"
+          },
+          {
+            "questionId": 3,
+            "type": "image-selection",
+            "question": "Select the image that represents the icon commonly displayed by browsers for secure connections (HTTPS):",
+            "options": [
+              "/images/https_loc.png",
+              "/images/https_open.png",
+              "/images/warning_triangle.png",
+              "/images/world_globe.png"
+            ],
+            "answer": "/images/https_lock.png"
+          }
+        ]
+      }
+    ]
+  }
+  
