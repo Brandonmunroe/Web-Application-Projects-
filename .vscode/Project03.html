@@ -10,17 +10,16 @@
 <body>
   <div id="start_page">
     <h1>Welcome to the Quiz App</h1>
-    <form id="start_form">
       <label for="name">Enter your name:</label>
       <input type="text" id="name" required>
-      <label for="quiz">Select a quiz:</label>
-      <select id="quiz" required>
-        <option value="quiz1">Quiz 1</option>
-        <option value="quiz2">Quiz 2</option>
+      <label for="quiz">Select a quiz:</label> 
+      <img  id="loading-indicator" src="indicator.gif" style="width:20%;margin:0 auto;text-align: center;" />
+      <select id="quiz_selection" required>
       </select>
-      <button type="submit">Start Quiz</button>
-    </form>
+      <button id="start_quiz">Start-Quiz</button>
+
   </div>
+  
 
   <div id="quiz_view" style="display: none;">
     <div id="question_container"></div>
@@ -40,7 +39,7 @@
 
   <script id="feedback_template" type="text/x-handlebars-template">
     <div class="feedback">
-      <p>Correct answer: {{correct_answer}}</p>
+      <p>Correct answer: {{answer}}</p>
       <button id="next_question_btn">Next Question</button>
     </div>
   </script>
@@ -50,6 +49,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
   <script src="app.js"></script>
+
 
 </body>
 </html>

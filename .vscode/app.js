@@ -1,88 +1,64 @@
- // Define API endpoint for quiz questions
-const API_URL = 'C:\Users\brand\Documents\GitHub\Web-Development-Projects-2.0\.vscode\quiz_math.json';
+let currentQuestionIndex = 0;
+let score = 0;
+let questions = [];
+let startTime;
+let elapsedInterval;
+var quizData;
 
-// Handle form submission
-$('#start_form').submit(async function(e) {
-  e.preventDefault();
-  const name = $('#name').val();
-  const selectedQuiz = $('#quiz').val();
-  const quizData = await fetchQuizData(selectedQuiz);
-  startQuiz(name, quizData);
-});
+document.addEventListener('DOMContentLoaded',runAfterDOM);
 
-// Fetch quiz data from API
-async function fetchQuizData(quizName) {
+function runAfterDOM(){
+    fetchQuizzes();
+    document.getElementById('start_quiz').addEventListener('click', startQuiz);
+    document.getElementById('loading-indicator').style.display = 'none';
+}
+
+async function fetchQuizzes() {
   try {
-    const response = await fetch(`${API_URL}/${quizName}`);
+    console.log('Fetching quizzes...');
+    document.getElementById('loading-indicator').style.display = 'block';
     
-    if (!response.ok) {
-      throw new Error('Error fetching quiz data');
-    }
-    const data = await response.json();
-    return data.questions;
+    const response = await fetch('https://my-json-server.typicode.com/Brandonmunroe/Web-Application-Projects-/quizzes');
+    const quizzes = await response.json();
+    quizData = quizzes;
+    console.log('Quizzes:', quizzes);
+
+    const selectElement = document.getElementById('quiz_selection');
+    quizzes.forEach(quiz => {
+      const option = document.createElement('option');
+      option.value = quiz.id;
+      option.text = quiz.name; // Assuming quiz object has a 'name' property
+      selectElement.appendChild(option);
+    });
+
+    document.getElementById('loading-indicator').style.display = 'none';
   } catch (error) {
-    console.error('Error fetching quiz data:', error);
-    return [];
+    console.error('Failed to fetch quizzes', error);
+    document.getElementById('quiz_error').textContent = 'Failed to load quizzes. Please try again later';
+    document.getElementById('loading-indicator').style.display = 'none';
   }
 }
 
-// Start quiz
-function startQuiz(name, questions) {
-  let currentQuestionIndex = 0;
-  let score = 0;
-
-  function displayQuestion() {
-    const question = questions[currentQuestionIndex];
-    const template = Handlebars.compile($('#question_template').html());
-    const html = template(question);
-    $('#question_container').html(html);
+async function startQuiz() {
+  const studentName = document.getElementById('name').value.trim();
+  if (!studentName) {
+    alert('Please enter your name');
+    return;
   }
+  const quizId = document.getElementById('quiz_selection').value;
+  let questions = quizData.filter(function(item) {
+    return item.id == quizId;
+  })[0].questions;
+  console.log('questions', questions)
+  // Proceed with starting the quiz based on the selected quizId
 
-  function displayFeedback(correctAnswer) {
-    const template = Handlebars.compile($('#feedback_template').html());
-    const html = template({ correct_answer: correctAnswer });
-    $('#feedback_container').html(html).show();
-    $('#next_question_btn').on('click', nextQuestion);
-  }
-
-  function nextQuestion() {
-    $('#feedback_container').hide();
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-      displayQuestion();
-    } else {
-      showQuizResult();
-    }
-  }
-
-  function showQuizResult() {
-    const scorePercentage = (score / questions.length) * 100;
-    const resultMessage = scorePercentage >= 80 ? `Congratulations ${name}! You passed the quiz.` : `Sorry ${name}, you failed the quiz.`;
-    $('#quiz_view').html(`<h2>${resultMessage}</h2>
-                          <button id="restart_quiz_btn">Restart Quiz</button>`);
-    $('#restart_quiz_btn').on('click', () => location.reload());
-  }
-
-  // Event delegation for handling option clicks
-  $('#question_container').on('click', '.option', function() {
-    const selectedAnswer = $(this).data('answer');
-    const correctAnswer = questions[currentQuestionIndex].correct_answer;
-    if (selectedAnswer === correctAnswer) {
-      score++;
-      displayFeedback('Correct!');
-      setTimeout(nextQuestion, 1000);
-    } else {
-      displayFeedback(correctAnswer);
-    }
-  });
-
-  // Start the quiz by displaying the first question
-  displayQuestion();
-  $('#start_page').hide();
-  $('#quiz_view').show();
+  document.getElementById('quiz_view').style.display = 'block';
+  const questionTemplate = document.getElementById('question_template').innerHTML;
+  const template = Handlebars.compile(questionTemplate);
+  const html = template({questions});
+  document.getElementById('question_container').innerHTML=html;
 }
 
-// Initialize app or perform other setup tasks as needed
-$(document).ready(function() {
-  // Additional setup or initialization code can go here
-});
+
+
+    

@@ -38,4 +38,9 @@ body {
   #restart_quiz_btn {
     margin-top: 20px;
   }
-  
+
+  #loading-indicator{
+    margin:0 auto;
+    text-align: center;
+    width:40%;
+  }
