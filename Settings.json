@@ -1,0 +1,65 @@
+{
+    "courses": [
+      {
+        "id": "101",
+        "name": "Introduction to Computer Science",
+        "instructor": "Dr. Alan Turing",
+        "description": "An introductory course to the fundamentals of computer science, covering algorithms, data structures, and basic programming.",
+        "image": "https://example.com/images/intro-to-cs.jpg",
+        "learningOutcomes": [
+          "Understand the foundational principles of computer science",
+          "Apply basic programming concepts in a modern programming language",
+          "Analyze and implement simple data structures and algorithms"
+        ]
+      },
+      {
+        "id": "102",
+        "name": "Principles of Economics",
+        "instructor": "Prof. Adam Smith",
+        "description": "Explore the principles of micro and macroeconomics, including market structures, fiscal policies, and economic theories.",
+        "image": "https://example.com/images/economics.jpg",
+        "learningOutcomes": [
+          "Explain the principles of micro and macroeconomics",
+          "Analyze economic policies and their impact on economies",
+          "Understand market structures and predict their behaviors"
+        ]
+      },
+      {
+        "id": "103",
+        "name": "World History: 1500 to Present",
+        "instructor": "Dr. Jane Doe",
+        "description": "A comprehensive overview of world history from the 1500s to the current day, focusing on global developments and cultural exchanges.",
+        "image": "https://example.com/images/world-history.jpg",
+        "learningOutcomes": [
+          "Trace the major global events from 1500 to present",
+          "Understand the impacts of cultural exchanges in shaping the modern world",
+          "Evaluate historical sources and narratives"
+        ]
+      },
+      {
+        "id": "104",
+        "name": "Introduction to Philosophy",
+        "instructor": "Prof. John Locke",
+        "description": "Dive into the major areas of philosophy, including metaphysics, ethics, logic, and epistemology, and explore how they inform contemporary issues.",
+        "image": "https://example.com/images/philosophy.jpg",
+        "learningOutcomes": [
+          "Identify and explain the main areas of philosophical inquiry",
+          "Apply philosophical reasoning to contemporary issues",
+          "Critically evaluate philosophical arguments"
+        ]
+      },
+      {
+        "id": "105",
+        "name": "Basics of Programming with Python",
+        "instructor": "Dr. Guido van Rossum",
+        "description": "Learn programming fundamentals and problem-solving techniques using Python. Suitable for beginners with no prior programming experience.",
+        "image": "https://example.com/images/python-programming.jpg",
+        "learningOutcomes": [
+          "Write simple programs in Python",
+          "Solve basic computational problems using Python",
+          "Understand the syntax and semantics of the Python programming language"
+        ]
+      }
+    ]
+  }
+  
